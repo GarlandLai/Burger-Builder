@@ -11,6 +11,7 @@ const modal = (props) => (
 			style={{
 				transform: props.show ? 'transformY(0)' : 'transformY(-100vh)',
 				opacity: props.show ? '1' : '0',
+				pointerEvents: props.show ? 'inherit' : 'none',
 			}}
 		>
 			{props.children}
