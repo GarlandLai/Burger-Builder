@@ -27,6 +27,8 @@
 }
 
 .Logo {
+	/* In mobile view */
 	height: 11%;
+	/* In desktop view  height should be 5.5% */
 	margin-bottom: 32px;
 }
