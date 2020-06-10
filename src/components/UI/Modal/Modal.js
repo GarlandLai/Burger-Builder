@@ -6,7 +6,10 @@ import Backdrop from '../Backdrop/Backdrop';
 class Modal extends Component {
 	// This make sure that props.show is different before updating. this also controls update of child (orderSummary)
 	shouldComponentUpdate(nextProps, nextState) {
-		return nextProps.show !== this.props.show;
+		return (
+			nextProps.show !== this.props.show ||
+			nextProps.children !== this.props.children
+		);
 	}
 
 	componentDidUpdate() {
