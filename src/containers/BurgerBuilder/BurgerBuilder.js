@@ -100,10 +100,10 @@ class BurgerBuilder extends Component {
 			},
 			deliveryMethod: 'fastest',
 		};
-		// axios
-		// 	.post('/orders.json', order)
-		// 	.then((response) => this.setState({ loading: false, purchasing: false }))
-		// 	.catch((error) => this.setState({ loading: false, purchasing: false }));
+		axios
+			.post('/orders.json', order)
+			.then((response) => this.setState({ loading: false, purchasing: false }))
+			.catch((error) => this.setState({ loading: false, purchasing: false }));
 	};
 
 	render() {
@@ -115,7 +115,10 @@ class BurgerBuilder extends Component {
 			disabledInfo[key] = disabledInfo[key] <= 0;
 		}
 
-		let orderSummary = (
+		// Updated this to a ternary to successfully show spinner inside of modal.
+		let orderSummary = this.state.loading ? (
+			<Spinner />
+		) : (
 			<OrderSummary
 				ingredients={this.state.ingredients}
 				purchaseCancelled={this.purchasedCancelHandler}
@@ -123,10 +126,6 @@ class BurgerBuilder extends Component {
 				price={this.state.totalPrice}
 			/>
 		);
-
-		if (this.state.loading) {
-			return (orderSummary = <Spinner />);
-		}
 
 		return (
 			<Aux>
