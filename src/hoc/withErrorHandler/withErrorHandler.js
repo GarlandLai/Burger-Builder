@@ -8,6 +8,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
 			error: null,
 		};
 		componentWillMount() {
+			// add this to create ref that can be used in will unmount
 			this.reqInterceptor = axios.interceptors.request.use((req) => {
 				this.setState({ error: null });
 				return req;
@@ -22,7 +23,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
 
 		// Will help with not setting multiple interceptors in application
 		componentWillUnmount() {
-			console.log('will unmount', this.reqInterceptor, this.resInterceptor);
+			// console.log('will unmount', this.reqInterceptor, this.resInterceptor);
 			axios.interceptors.request.eject(this.reqInterceptor);
 			axios.interceptors.request.eject(this.resInterceptor);
 		}
