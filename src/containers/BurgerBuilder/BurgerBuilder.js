@@ -18,22 +18,20 @@ const INGREDIENT_PRICES = {
 class BurgerBuilder extends Component {
 	state = {
 		ingredients: null,
-		// {
-		// 	salad: 0,
-		// 	bacon: 0,
-		// 	cheese: 0,
-		// 	meat: 0,
-		// },
 		totalPrice: 4,
 		purchasable: false,
 		purchasing: false,
 		loading: false,
+		error: false,
 	};
 
 	componentDidMount() {
 		axios
 			.get('https://react-my-burger-a16da.firebaseio.com/ingredients.json')
-			.then((response) => this.setState({ ingredients: response.data }));
+			.then((response) => this.setState({ ingredients: response.data }))
+			.catch((error) => {
+				this.setState({ error: true });
+			});
 	}
 
 	updatePurchaseState = (ingredients) => {
@@ -127,9 +125,13 @@ class BurgerBuilder extends Component {
 		// Updated this to a ternary to successfully show spinner inside of modal.
 		let orderSummary = null;
 
-		let burger = <Spinner />;
+		let burger = this.state.error ? (
+			<p>Ingredients cant be loaded!</p>
+		) : (
+			<Spinner />
+		);
 		if (this.state.ingredients) {
-			// console.log(this.state.ingredients);
+			console.log(this.state.ingredients);
 			burger = (
 				<Aux>
 					<Burger ingredients={this.state.ingredients} />
