@@ -33,7 +33,7 @@ class BurgerBuilder extends Component {
 	componentDidMount() {
 		axios
 			.get('https://react-my-burger-a16da.firebaseio.com/ingredients.json')
-			.then((response) => this.setState({ ingredient: response.data }));
+			.then((response) => this.setState({ ingredients: response.data }));
 	}
 
 	updatePurchaseState = (ingredients) => {
@@ -129,6 +129,7 @@ class BurgerBuilder extends Component {
 
 		let burger = <Spinner />;
 		if (this.state.ingredients) {
+			// console.log(this.state.ingredients);
 			burger = (
 				<Aux>
 					<Burger ingredients={this.state.ingredients} />
