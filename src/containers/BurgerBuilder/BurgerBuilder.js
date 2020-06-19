@@ -131,7 +131,6 @@ class BurgerBuilder extends Component {
 			<Spinner />
 		);
 		if (this.state.ingredients) {
-			console.log(this.state.ingredients);
 			burger = (
 				<Aux>
 					<Burger ingredients={this.state.ingredients} />
