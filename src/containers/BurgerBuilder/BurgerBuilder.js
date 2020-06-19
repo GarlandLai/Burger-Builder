@@ -26,6 +26,7 @@ class BurgerBuilder extends Component {
 	};
 
 	componentDidMount() {
+		console.log('burgerBuilder', this.props);
 		axios
 			.get('https://react-my-burger-a16da.firebaseio.com/ingredients.json')
 			.then((response) => this.setState({ ingredients: response.data }))
@@ -90,27 +91,27 @@ class BurgerBuilder extends Component {
 	};
 
 	purchaseContinueHandler = () => {
-		// alert('Continue');
-		this.setState({ loading: true });
-		const order = {
-			ingredient: this.state.ingredients,
-			price: this.state.totalPrice,
-			customer: {
-				name: 'Garland Lai',
-				address: {
-					street: 'Random street',
-					zipCode: '94111',
-					country: 'US',
-				},
-				email: 'email@test.com',
-			},
-			deliveryMethod: 'fastest',
-		};
-		axios
-			// if you want to see error handling, remove the .json (which is needed) or make a typo on url
-			.post('/orders.json', order)
-			.then((response) => this.setState({ loading: false, purchasing: false }))
-			.catch((error) => this.setState({ loading: false, purchasing: false }));
+		// // alert('Continue');
+		// this.setState({ loading: true });
+		// const order = {
+		// 	ingredient: this.state.ingredients,
+		// 	price: this.state.totalPrice,
+		// 	customer: {
+		// 		name: 'Garland Lai',
+		// 		address: {
+		// 			street: 'Random street',
+		// 			zipCode: '94111',
+		// 			country: 'US',
+		// 		},
+		// 		email: 'email@test.com',
+		// 	},
+		// 	deliveryMethod: 'fastest',
+		// };
+		// axios
+		// 	// if you want to see error handling, remove the .json (which is needed) or make a typo on url
+		// 	.post('/orders.json', order)
+		// 	.then((response) => this.setState({ loading: false, purchasing: false }))
+		// 	.catch((error) => this.setState({ loading: false, purchasing: false }));
 	};
 
 	render() {
