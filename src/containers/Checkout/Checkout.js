@@ -8,7 +8,6 @@ class Checkout extends Component {
 	// Will be repalced since these are made up data for now
 	state = {
 		ingredients: null,
-		price: 0,
 	};
 
 	componentWillMount() {
@@ -35,6 +34,7 @@ class Checkout extends Component {
 	};
 
 	render() {
+		console.log(this.state, 'state');
 		return (
 			<div>
 				<CheckoutSummary
@@ -47,7 +47,7 @@ class Checkout extends Component {
 					render={(props) => (
 						<ContactData
 							ingredients={this.state.ingredients}
-							price={this.state.price}
+							price={this.state.totalPrice}
 							// To pass all props. specificially the histroy prop!
 							{...props}
 						/>
