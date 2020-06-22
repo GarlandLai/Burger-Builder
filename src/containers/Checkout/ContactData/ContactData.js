@@ -12,6 +12,8 @@ class ContactData extends Component {
 		},
 	};
 
+	orderHandler = () => {};
+
 	render() {
 		return (
 			<div className={classes.ContactData}>
@@ -41,7 +43,9 @@ class ContactData extends Component {
 						name="zipCode"
 						placeholder="Your Zip Code"
 					/>
-					<Button btnType="Success">ORDER</Button>
+					<Button btnType="Success" clicked={this.orderHandler}>
+						ORDER
+					</Button>
 				</form>
 			</div>
 		);
