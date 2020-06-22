@@ -91,28 +91,6 @@ class BurgerBuilder extends Component {
 	};
 
 	purchaseContinueHandler = () => {
-		// // alert('Continue');
-		// this.setState({ loading: true });
-		// const order = {
-		// 	ingredient: this.state.ingredients,
-		// 	price: this.state.totalPrice,
-		// 	customer: {
-		// 		name: 'Garland Lai',
-		// 		address: {
-		// 			street: 'Random street',
-		// 			zipCode: '94111',
-		// 			country: 'US',
-		// 		},
-		// 		email: 'email@test.com',
-		// 	},
-		// 	deliveryMethod: 'fastest',
-		// };
-		// axios
-		// 	// if you want to see error handling, remove the .json (which is needed) or make a typo on url
-		// 	.post('/orders.json', order)
-		// 	.then((response) => this.setState({ loading: false, purchasing: false }))
-		// 	.catch((error) => this.setState({ loading: false, purchasing: false }));
-
 		const queryParams = [];
 		for (let i in this.state.ingredients) {
 			// Helper method that from javascript to encodes elements so they can be used in URL
@@ -122,6 +100,8 @@ class BurgerBuilder extends Component {
 					encodeURIComponent(this.state.ingredients[i])
 			);
 		}
+		// We must pass total price as well to checkout component
+		queryParams.push('price=' + this.state.totalPrice);
 		// Will pass this string to url
 		const queryString = queryParams.join('&');
 
