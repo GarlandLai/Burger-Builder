@@ -4,7 +4,6 @@ import classes from './Order.module.css';
 const order = (props) => {
 	// Code to transform ingredients
 	const ingredients = [];
-	console.log(props.ingredients);
 	for (let ingredientName in props.ingredients) {
 		ingredients.push({
 			name: ingredientName,
@@ -28,7 +27,7 @@ const order = (props) => {
 			</span>
 		);
 	});
-	console.log(ingredientOutput);
+
 	return (
 		<div className={classes.Order}>
 			<p>Ingredients: {ingredientOutput}</p>
