@@ -7,12 +7,65 @@ import Input from '../../../components/UI/Input/Input';
 
 class ContactData extends Component {
 	state = {
-		name: '',
-		email: '',
-		address: {
-			street: '',
-			zipCode: '',
+		orderForm: {
+			name: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeholder: 'Your Name',
+				},
+				value: '',
+			},
+			street: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeholder: 'Your Steet',
+				},
+				value: '',
+			},
+			zipCode: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeholder: 'Your ZipCode',
+				},
+				value: '',
+			},
+			country: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeholder: 'Your Steet',
+				},
+				value: '',
+			},
+			email: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeholder: 'Your Email',
+				},
+				value: '',
+			},
+			deliveryMethod: {
+				elementType: 'select',
+				elementConfig: {
+					options: [
+						{
+							value: 'fastest',
+							displayValue: 'Fastest',
+						},
+						{
+							value: 'cheapest',
+							displayValue: 'Cheapest',
+						},
+					],
+					value: '',
+				},
+			},
 		},
+		loading: false,
 	};
 
 	orderHandler = (event) => {
@@ -21,16 +74,6 @@ class ContactData extends Component {
 		const order = {
 			ingredients: this.props.ingredients,
 			price: this.props.price,
-			customer: {
-				name: 'Garland Lai',
-				address: {
-					street: 'Random street',
-					zipCode: '94111',
-					country: 'US',
-				},
-				email: 'email@test.com',
-			},
-			deliveryMethod: 'fastest',
 		};
 		axios
 			// if you want to see error handling, remove the .json (which is needed) or make a typo on url
@@ -45,12 +88,7 @@ class ContactData extends Component {
 	render() {
 		let form = (
 			<form>
-				<Input
-					inputtype="input"
-					type="text"
-					name="name"
-					placeholder="Your Name"
-				/>
+				<Input element="..." elementConfig="..." value="..." />
 				<Input
 					inputtype="input"
 					type="text"
