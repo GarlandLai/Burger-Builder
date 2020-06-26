@@ -4,6 +4,7 @@ import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from './ContactData.module.css';
 import Input from '../../../components/UI/Input/Input';
+import { element } from 'prop-types';
 
 class ContactData extends Component {
 	state = {
@@ -86,27 +87,23 @@ class ContactData extends Component {
 	};
 
 	render() {
+		const formElementArray = [];
+		for (let key in this.state.orderForm) {
+			formElementArray.push({
+				id: key,
+				config: this.state.orderForm[key],
+			});
+		}
 		let form = (
 			<form>
-				<Input element="..." elementConfig="..." value="..." />
-				{/* <Input
-					inputtype="input"
-					type="text"
-					name="email"
-					placeholder="Your Email"
-				/>
-				<Input
-					inputtype="input"
-					type="text"
-					name="street"
-					placeholder="Your Street"
-				/>
-				<Input
-					inputtype="input"
-					type="text"
-					name="zipCode"
-					placeholder="Your Zip Code"
-				/> */}
+				{formElementArray.map((formElement) => (
+					<Input
+						key={formElement.id}
+						elementType={formElement.config.elementType}
+						elementConfig={formElement.config.elementConfig}
+						value={formElement.config.value}
+					/>
+				))}
 				<Button btnType="Success" clicked={this.orderHandler}>
 					ORDER
 				</Button>

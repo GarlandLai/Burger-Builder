@@ -17,6 +17,7 @@ const input = (props) => {
 		case 'textarea':
 			inputElement = <textarea className={classes.InputElement} {...props} />;
 			break;
+
 		default:
 			inputElement = <input className={classes.InputElemet} {...props} />;
 	}
