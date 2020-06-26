@@ -89,7 +89,7 @@ class ContactData extends Component {
 		let form = (
 			<form>
 				<Input element="..." elementConfig="..." value="..." />
-				<Input
+				{/* <Input
 					inputtype="input"
 					type="text"
 					name="email"
@@ -106,7 +106,7 @@ class ContactData extends Component {
 					type="text"
 					name="zipCode"
 					placeholder="Your Zip Code"
-				/>
+				/> */}
 				<Button btnType="Success" clicked={this.orderHandler}>
 					ORDER
 				</Button>
