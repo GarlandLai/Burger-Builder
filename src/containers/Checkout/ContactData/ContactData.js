@@ -4,7 +4,6 @@ import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from './ContactData.module.css';
 import Input from '../../../components/UI/Input/Input';
-import { element } from 'prop-types';
 
 class ContactData extends Component {
 	state = {
@@ -29,7 +28,7 @@ class ContactData extends Component {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeholder: 'Your ZipCode',
+					placeholder: 'Your Zipcode',
 				},
 				value: '',
 			},
@@ -72,9 +71,17 @@ class ContactData extends Component {
 	orderHandler = (event) => {
 		event.preventDefault();
 		this.setState({ loading: true });
+
+		const formData = {};
+		for (let formElementIdentifier in this.state.orderForm) {
+			formData[formElementIdentifier] = this.state.orderForm[
+				formElementIdentifier
+			].value;
+		}
 		const order = {
 			ingredients: this.props.ingredients,
 			price: this.props.price,
+			orderData: formData,
 		};
 		axios
 			// if you want to see error handling, remove the .json (which is needed) or make a typo on url
@@ -105,7 +112,7 @@ class ContactData extends Component {
 			});
 		}
 		let form = (
-			<form>
+			<form onSubmit={this.orderHandler}>
 				{formElementArray.map((formElement) => (
 					<Input
 						key={formElement.id}
