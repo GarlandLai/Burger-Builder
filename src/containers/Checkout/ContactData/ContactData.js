@@ -41,6 +41,8 @@ class ContactData extends Component {
 				value: '',
 				validation: {
 					required: true,
+					minLength: 5,
+					maxLength: 5,
 				},
 				valid: false,
 			},
@@ -113,15 +115,26 @@ class ContactData extends Component {
 			.catch((error) => this.setState({ loading: false }));
 	};
 
-	checkValidity(value, rules) {
+	checkValidity = (value, rules) => {
 		let isValid = false;
 
 		if (rules.required) {
 			console.log(value);
 			isValid = value.trim() !== '';
+			// isValid = value !== '';
 		}
+
+		if (rules.minLength) {
+			isValid = value.length >= rules.minLength;
+		}
+
+		// applyed to zipcode
+		if (rules.maxLength) {
+			isValid = value.length <= rules.maxLength;
+		}
+
 		return isValid;
-	}
+	};
 
 	inputChangedHandler = (event, inputIdentifier) => {
 		const updatedOrderForm = {
@@ -132,7 +145,7 @@ class ContactData extends Component {
 
 		// checks to see if it is valid
 		updatedFormElement.valid = this.checkValidity(
-			updatedFormElement,
+			updatedFormElement.value,
 			updatedFormElement.validation
 		);
 		console.log(updatedFormElement);
