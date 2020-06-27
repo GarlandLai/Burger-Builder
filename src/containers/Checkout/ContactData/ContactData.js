@@ -116,21 +116,21 @@ class ContactData extends Component {
 	};
 
 	checkValidity = (value, rules) => {
-		let isValid = false;
+		let isValid = true;
 
 		if (rules.required) {
 			console.log(value);
-			isValid = value.trim() !== '';
+			isValid = value.trim() !== '' && isValid;
 			// isValid = value !== '';
 		}
 
 		if (rules.minLength) {
-			isValid = value.length >= rules.minLength;
+			isValid = value.length >= rules.minLength && isValid;
 		}
 
 		// applyed to zipcode
 		if (rules.maxLength) {
-			isValid = value.length <= rules.maxLength;
+			isValid = value.length <= rules.maxLength && isValid;
 		}
 
 		return isValid;
