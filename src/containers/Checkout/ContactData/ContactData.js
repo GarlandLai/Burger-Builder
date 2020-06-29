@@ -170,6 +170,9 @@ class ContactData extends Component {
 						elementType={formElement.config.elementType}
 						elementConfig={formElement.config.elementConfig}
 						value={formElement.config.value}
+						invalid={!formElement.config.valid}
+						// in this case dropdown doesnt have validation property so it returns false
+						shouldValidate={formElement.config.validation}
 						changed={(event) => this.inputChangedHandler(event, formElement.id)}
 					/>
 				))}
