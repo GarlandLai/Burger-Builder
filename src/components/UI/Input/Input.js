@@ -60,7 +60,7 @@ const input = (props) => {
 	if (props.invalid && props.touched) {
 		validationError = <p>Please enter a valid value!</p>;
 	}
-	console.log(props, 'props');
+
 	return (
 		<div className={classes.Input}>
 			<label className={classes.Label}>{props.label}</label>
