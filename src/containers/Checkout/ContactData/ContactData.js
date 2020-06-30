@@ -90,6 +90,7 @@ class ContactData extends Component {
 					],
 				},
 				value: '',
+				validation: {},
 				// Dropdown should always be true
 				valid: true,
 			},
