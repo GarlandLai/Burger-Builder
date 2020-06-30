@@ -19,6 +19,7 @@ class ContactData extends Component {
 					required: true,
 				},
 				valid: false,
+				touched: false,
 			},
 			street: {
 				elementType: 'input',
@@ -31,6 +32,7 @@ class ContactData extends Component {
 					required: true,
 				},
 				valid: false,
+				touched: false,
 			},
 			zipCode: {
 				elementType: 'input',
@@ -45,6 +47,7 @@ class ContactData extends Component {
 					maxLength: 5,
 				},
 				valid: false,
+				touched: false,
 			},
 			country: {
 				elementType: 'input',
@@ -57,6 +60,7 @@ class ContactData extends Component {
 					required: true,
 				},
 				valid: false,
+				touched: false,
 			},
 			email: {
 				elementType: 'input',
@@ -69,6 +73,7 @@ class ContactData extends Component {
 					required: true,
 				},
 				valid: false,
+				touched: false,
 			},
 			deliveryMethod: {
 				elementType: 'select',
@@ -150,6 +155,7 @@ class ContactData extends Component {
 		);
 		console.log(updatedFormElement);
 
+		updatedFormElement.touched = true;
 		updatedOrderForm[inputIdentifier] = updatedFormElement;
 		this.setState({ orderForm: updatedOrderForm });
 	};
@@ -173,6 +179,7 @@ class ContactData extends Component {
 						invalid={!formElement.config.valid}
 						// in this case dropdown doesnt have validation property so it returns false
 						shouldValidate={formElement.config.validation}
+						touched={formElement.config.touched}
 						changed={(event) => this.inputChangedHandler(event, formElement.id)}
 					/>
 				))}
