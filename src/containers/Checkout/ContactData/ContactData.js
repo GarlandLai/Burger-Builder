@@ -53,7 +53,7 @@ class ContactData extends Component {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeholder: 'Your Steet',
+					placeholder: 'Your Country',
 				},
 				value: '',
 				validation: {
