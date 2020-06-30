@@ -89,7 +89,8 @@ class ContactData extends Component {
 						},
 					],
 				},
-				value: '',
+				value: 'fastest',
+				// Could add the empty validation since it doesnt really need it.
 				validation: {},
 				// Dropdown should always be true
 				valid: true,
