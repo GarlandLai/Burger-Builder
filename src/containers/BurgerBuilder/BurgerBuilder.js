@@ -117,7 +117,7 @@ class BurgerBuilder extends Component {
 	render() {
 		// will disable the less button if true. Below formats to each ingredient true or false.
 		const disabledInfo = {
-			...this.props.ing,
+			...this.props.ings,
 		};
 		for (let key in disabledInfo) {
 			disabledInfo[key] = disabledInfo[key] <= 0;
@@ -131,10 +131,11 @@ class BurgerBuilder extends Component {
 		) : (
 			<Spinner />
 		);
-		if (this.props.ing) {
+
+		if (this.props.ings) {
 			burger = (
 				<Aux>
-					<Burger ingredients={TouchList.props.ing} />
+					<Burger ingredients={this.props.ings} />
 					<BuildControls
 						ingredientAdded={this.props.onIngredientAdded}
 						ingredientRemoved={this.props.onIngredientRemoved}
@@ -149,7 +150,7 @@ class BurgerBuilder extends Component {
 				<Spinner />
 			) : (
 				<OrderSummary
-					ingredients={TouchList.props.ing}
+					ingredients={this.props.ings}
 					purchaseCancelled={this.purchasedCancelHandler}
 					purchaseContinue={this.purchaseContinueHandler}
 					price={this.state.totalPrice}
