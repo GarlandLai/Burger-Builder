@@ -6,26 +6,6 @@ import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSumm
 import ContactData from './ContactData/ContactData';
 
 class Checkout extends Component {
-	// Will be repalced since these are made up data for now
-	// state = {
-	// 	ingredients: null,
-	// };
-
-	// componentWillMount() {
-	// 	const query = new URLSearchParams(this.props.location.search);
-	// 	const ingredients = {};
-	// 	let price = 0;
-	// 	for (let param of query.entries()) {
-	// 		// add check to see if total price
-	// 		if (param[0] === 'price') {
-	// 			price = param[1];
-	// 		} else {
-	// 			ingredients[param[0]] = +param[1];
-	// 		}
-	// 	}
-	// 	this.setState({ ingredients: ingredients, totalPrice: price });
-	// }
-
 	checkoutCancelledHandler = () => {
 		this.props.history.goBack();
 	};
@@ -58,3 +38,23 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Checkout);
+
+// Will be repalced since these are made up data for now
+// state = {
+// 	ingredients: null,
+// };
+
+// componentWillMount() {
+// 	const query = new URLSearchParams(this.props.location.search);
+// 	const ingredients = {};
+// 	let price = 0;
+// 	for (let param of query.entries()) {
+// 		// add check to see if total price
+// 		if (param[0] === 'price') {
+// 			price = param[1];
+// 		} else {
+// 			ingredients[param[0]] = +param[1];
+// 		}
+// 	}
+// 	this.setState({ ingredients: ingredients, totalPrice: price });
+// }
