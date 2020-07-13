@@ -72,7 +72,7 @@ class BurgerBuilder extends Component {
 
 		// Updated this to a ternary to successfully show spinner inside of modal.
 		let orderSummary = null;
-
+		console.log(this.props.error);
 		let burger = this.props.error ? (
 			<p>Ingredients can't be loaded!</p>
 		) : (
