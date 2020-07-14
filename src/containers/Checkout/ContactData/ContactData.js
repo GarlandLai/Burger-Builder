@@ -117,14 +117,13 @@ class ContactData extends Component {
 			price: this.props.price,
 			orderData: formData,
 		};
-		axios
-			// if you want to see error handling, remove the .json (which is needed) or make a typo on url
-			.post('/orders.json', order)
-			.then((response) => {
-				this.setState({ loading: false });
-				this.props.history.push('/');
-			})
-			.catch((error) => this.setState({ loading: false }));
+		// axios
+		// 	.post('/orders.json', order)
+		// 	.then((response) => {
+		// 		this.setState({ loading: false });
+		// 		this.props.history.push('/');
+		// 	})
+		// 	.catch((error) => this.setState({ loading: false }));
 	};
 
 	checkValidity = (value, rules) => {
