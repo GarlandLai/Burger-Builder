@@ -65,6 +65,7 @@ export const fetchOrderStart = () => {
 
 export const fetchOrders = () => {
 	return (dispatch) => {
+		dispatch(fetchOrderStart());
 		axios
 			// Can test error by removing .json
 			.get('orders.json')
