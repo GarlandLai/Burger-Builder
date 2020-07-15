@@ -42,3 +42,47 @@ export const purchaseInit = () => {
 		type: actionTypes.PURCHASE_INIT,
 	};
 };
+
+export const fetchOrderSuccess = (orders) => {
+	return {
+		type: actionTypes.FETCH_ORDERS_SUCCESS,
+		orders: orders,
+	};
+};
+
+export const fetchOrderFail = (error) => {
+	return {
+		type: actionTypes.FETCH_ORDERS_FAIL,
+		error: error,
+	};
+};
+
+export const fetchOrderStart = () => {
+	return {
+		type: actionTypes.FETCH_ORDERS_START,
+	};
+};
+
+export const fetchOrders = () => {
+	return (dispatch) => {
+		axios
+			// Can test error by removing .json
+			.get('orders.json')
+			.then((res) => {
+				const fetchedOrders = [];
+				for (let key in res.data) {
+					// Push a custom object to include the ID
+					fetchedOrders.push({
+						...res.data[key],
+						id: key,
+					});
+				}
+				dispatch(fetchOrderSuccess(fetchedOrders));
+				// this.setState({ loading: false, orders: fetchedOrders });
+			})
+			.catch((err) => {
+				dispatch(fetchOrderFail(err));
+				// this.setState({ loading: false });
+			});
+	};
+};
