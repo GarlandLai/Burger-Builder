@@ -63,12 +63,12 @@ export const fetchOrderStart = () => {
 	};
 };
 
-export const fetchOrders = () => {
+export const fetchOrders = (token) => {
 	return (dispatch) => {
 		dispatch(fetchOrderStart());
 		axios
 			// Can test error by removing .json
-			.get('orders.json')
+			.get('orders.json?auth=' + token)
 			.then((res) => {
 				const fetchedOrders = [];
 				for (let key in res.data) {
