@@ -10,7 +10,7 @@ const sideDrawer = (props) => {
 	if (props.open) {
 		attachedClasses = [classes.SideDrawer, classes.Open];
 	}
-
+	console.log(props.isAuth);
 	return (
 		<Aux>
 			<Backdrop show={props.open} clicked={props.closed} />
@@ -19,7 +19,7 @@ const sideDrawer = (props) => {
 					<Logo />
 				</div>
 				<nav>
-					<NavigationItems />
+					<NavigationItems isAuthenticated={props.isAuth} />
 				</nav>
 			</div>
 		</Aux>
