@@ -68,7 +68,7 @@ export const fetchOrders = (token, userId) => {
 		dispatch(fetchOrderStart());
 		// Needs to make sure its in string format
 		const queryParams =
-			'?auth' + token + '&orderBy="userId"&equalTo"' + userId + '"';
+			'?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
 		axios
 			// Can test error by removing .json
 			.get('orders.json' + queryParams)
