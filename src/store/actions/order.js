@@ -63,12 +63,15 @@ export const fetchOrderStart = () => {
 	};
 };
 
-export const fetchOrders = (token) => {
+export const fetchOrders = (token, userId) => {
 	return (dispatch) => {
 		dispatch(fetchOrderStart());
+		// Needs to make sure its in string format
+		const queryParams =
+			'?auth' + token + '&orderBy="userId"&equalTo"' + userId + '"';
 		axios
 			// Can test error by removing .json
-			.get('orders.json?auth=' + token)
+			.get('orders.json' + queryParams)
 			.then((res) => {
 				const fetchedOrders = [];
 				for (let key in res.data) {
