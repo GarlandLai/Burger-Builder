@@ -96,7 +96,6 @@ class ContactData extends Component {
 					],
 				},
 				value: 'fastest',
-				// Could add the empty validation since it doesnt really need it.
 				validation: {},
 				// Dropdown should always be true
 				valid: true,
@@ -108,7 +107,6 @@ class ContactData extends Component {
 
 	orderHandler = (event) => {
 		event.preventDefault();
-		// this.setState({ loading: true });
 
 		const formData = {};
 		for (let formElementIdentifier in this.state.orderForm) {
@@ -124,14 +122,6 @@ class ContactData extends Component {
 		};
 
 		this.props.onOrderBurger(order, this.props.token);
-
-		// axios
-		// 	.post('/orders.json', order)
-		// 	.then((response) => {
-		// 		this.setState({ loading: false });
-		// 		this.props.history.push('/');
-		// 	})
-		// 	.catch((error) => this.setState({ loading: false }));
 	};
 
 	checkValidity(value, rules) {
@@ -177,7 +167,6 @@ class ContactData extends Component {
 			updatedFormElement.value,
 			updatedFormElement.validation
 		);
-		// console.log(updatedFormElement);
 
 		updatedFormElement.touched = true;
 

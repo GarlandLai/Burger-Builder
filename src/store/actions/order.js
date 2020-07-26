@@ -82,11 +82,9 @@ export const fetchOrders = (token, userId) => {
 					});
 				}
 				dispatch(fetchOrderSuccess(fetchedOrders));
-				// this.setState({ loading: false, orders: fetchedOrders });
 			})
 			.catch((err) => {
 				dispatch(fetchOrderFail(err));
-				// this.setState({ loading: false });
 			});
 	};
 };
