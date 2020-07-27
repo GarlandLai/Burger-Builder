@@ -103,7 +103,6 @@ class ContactData extends Component {
 			},
 		},
 		formIsValid: false,
-		// loading: false,
 	};
 
 	orderHandler = (event) => {
@@ -140,8 +139,6 @@ class ContactData extends Component {
 		const updatedOrderForm = updateObject(this.state.orderForm, {
 			[inputIdentifier]: updatedFormElement,
 		});
-
-		// updatedOrderForm[inputIdentifier] = updatedFormElement;
 
 		// loop through and make sure all values are correct.
 		let formIsValid = true;
