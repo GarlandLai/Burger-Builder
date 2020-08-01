@@ -68,7 +68,6 @@ const reducer = (state = initialState, action) => {
 		case actionTypes.REMOVE_INGREDIENT:
 			return removeIngredient(state, action);
 		case actionTypes.SET_INGREDIENTS:
-			console.log('set', action);
 			return setIngredients(state, action);
 		case actionTypes.FETCH_INGREDIENTS_FAILED:
 			return fetchIngreidentFailed(state, action);
