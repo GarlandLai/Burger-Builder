@@ -16,7 +16,6 @@ const INGREDIENT_PRICES = {
 };
 
 const addIngredient = (state, action) => {
-	console.log(action);
 	const updatedIngredient = {
 		[action.ingredientName]: state.ingredients[action.ingredientName] + 1,
 	};
@@ -26,7 +25,6 @@ const addIngredient = (state, action) => {
 		totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
 		building: true,
 	};
-	console.log(updateObject(state, updatedState));
 	return updateObject(state, updatedState);
 };
 
